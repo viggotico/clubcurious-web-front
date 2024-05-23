@@ -4,6 +4,7 @@
     @include mixins.flex(row);
 
     width: 100%;
+    height: fit-content;
     background-color: white;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     border-radius: 0 0 30px 30px;
@@ -31,12 +32,12 @@
     
     .subMenuWrapper {
         @include mixins.flex(column, space-between);
-        @include mixins.absolutePos(top);
         
         min-width: 120px;
         background-color: white;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
         border-radius: 0 0 10px 10px;
+        position: absolute;
         top: 40px;
     }
     
@@ -53,4 +54,9 @@
 .navMobile {
     @extend .main;
     @include mixins.flex(row);
+}
+
+.subHidden {
+    // display: none !important;
+    background-color: green !important;
 }

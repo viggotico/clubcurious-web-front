@@ -2,6 +2,8 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  --bg-gradient: linear-gradient(160deg, #afafaf 0%, #cbbfb0 42%, #bababa 100%);
 }
 
 * {
@@ -27,16 +29,28 @@ body {
 
 .bg-gradient {
   /* https://cssgradient.io/ */
-  background: -moz-linear-gradient(164deg, #76adcf 0%, #caa989 42%, #b787c7 100%);
-  background: -webkit-linear-gradient(164deg, #76adcf 0%, #caa989 42%, #b787c7 100%);
-  background: linear-gradient(164deg, #76adcf 0%, #caa989 42%, #b787c7 100%);
+  background-size: 300%;
+  background-image: var(--bg-gradient);
+  animation: lavaLampe 40s infinite;
 }
 
 .bg-texture {
   width: 100%;
   height: 100%;
-  opacity: 0.7;
+  opacity: 1;
   position: absolute;
   mix-blend-mode: screen;
   background-image: url("bg-texture.png");
+}
+
+@keyframes lavaLampe {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
 }
