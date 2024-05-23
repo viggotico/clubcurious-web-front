@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import bgTextureUrl from '../../assets/bg-texture.png';
+import style from './MainLayout.module.scss';
 
 const MainLayout = ({ }) => {
     useEffect(() => {
@@ -11,16 +12,15 @@ const MainLayout = ({ }) => {
         for (let i = 0; i < bgTexture.length; i++) {
             const element = bgTexture[i];
             element.style.backgroundImage = `url("${bgTextureUrl}")`;
-            console.log("element:", element.style.backgroundImage);
         }
     }, []);
     
     return (
-        <>
+        <main className={style.main}>
             <Navbar />
             <Outlet />
             <Footer />
-        </>
+        </main>
     )
 }
 

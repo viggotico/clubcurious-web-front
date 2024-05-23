@@ -6,8 +6,15 @@ import Collaboration from './Collaboration';
 import AboutUs from './AboutUs';
 import Contact from './Contact';
 import NotFound from './NotFound';
+import { useEffect } from 'react';
+import Translation from '../../statics/Translation';
 
 const Pages = ({ }) => {
+    useEffect(() => {
+        // sætte sproget på siden til den gemte værdi på brugerens browser (localStorage)
+        Translation.initialize();
+    }, []);
+
     return (
         <BrowserRouter>
             <Routes>

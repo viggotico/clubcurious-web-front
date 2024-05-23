@@ -3,25 +3,172 @@
 .main {
     @include mixins.flex(row);
 
-    width: 100%;
+    width: calc(100% - 40px);
     height: fit-content;
-    font-size: 30px;
+    margin: 0 20px;
+    font-size: 1rem;
+    text-align: center;
     background-color: white;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    border-radius: 0 0 30px 30px;
+    border-radius: 0 0 10px 10px;
     position: sticky;
+    top: 0;
     z-index: 10;
-    overflow: hidden;
-    
-    .menu {
-        @include mixins.flex(row, space-between);
+    animation: showNavbar ease 0.5s;
 
-        li {
-            @include mixins.flex(row);
-            position: relative;
-            padding: 10px 10px;
+    @keyframes showNavbar {
+        0% {
+            transform: translateY(-100px);
+        }
+        100% {
+            transform: translateY(0px);
         }
     }
+
+    .menuWrapper {
+        @include mixins.flex(row, space-between);
+
+        width: 100%;
+        margin: 0 20px;
+        .logo {
+            @include mixins.flex(row);
+
+            margin-right: 10px;
+            position: relative;
+            border-radius: 0 0 0 10px;
+            transform: translateX(-20px);
+            overflow: hidden;
+            a {
+                @include mixins.flex(row);
+            }
+
+            img {
+                width: 100px;
+                animation: logoAni ease 0.7s;
+                transition: 0.2s;
+            }
+
+            img:hover {
+                filter: invert(1);
+                transition: 0.2s;
+            }
+
+            @keyframes logoAni {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-150px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0px);
+                }
+            }
+        }
+        
+        .menu {
+            @include mixins.flex(row, right);
+    
+            margin-left: 10px;
+            li {
+                @include mixins.flex(row);
+                position: relative;
+                padding: 10px 10px;
+            }
+        
+            .dropdown {
+                @include mixins.flex(column);
+    
+                a {
+                    @include mixins.flex(row);
+                    gap: 5px;
+                }
+    
+                .iconWrapper {
+                    padding-top: 4px;
+                    svg {
+                        transform: rotateZ(-90deg) scale(0.7);
+                        transition: 0.2s ease;
+                    }
+                }
+            
+                .subMenuWrapper {
+                    @include mixins.flex(column);
+                
+                    display: none;
+                    .subMenu {
+                        @include mixins.flex(column);
+                        margin: 0 10px;
+                
+                        li {
+                            @include mixins.flex(row);
+    
+                            width: 100%;
+                            a {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        
+            .dropdown:hover {
+                .iconWrapper {
+                    svg {
+                        transform: rotateZ(0) scale(0.7);
+                        transition: 0.2s ease;
+                    }
+                }
+    
+                .subMenuWrapper {
+                    display: flex;
+                }
+            }
+
+            .language {
+                @include mixins.flex(row);
+
+                gap: 3px;
+                margin-left: 10px;
+                padding: 5px 7px;
+                background-color: var(--color-red);
+                border-radius: 10px;
+                font-size: 0.6em;
+                color: var(--color-white);
+
+                span {
+                    @include mixins.flex(row);
+
+                    cursor: default;
+                    width: 100%;
+                    padding-top: 1px;
+                }
+
+                svg {
+                    font-size: 1.5em;
+                }
+            }
+
+            .language:hover {
+                cursor: pointer;
+                background-color: var(--color-blue);
+
+                span {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.active {
+    color: var(--color-red);
+}
+
+.divider {
+    height: 20px;
+    margin: 0 10px;
+    border-right: 1px solid var(--color-green);
+    opacity: 0.5;
 }
 
 .navDesktop {
@@ -29,26 +176,19 @@
     @include mixins.flex(row);
     
     .dropdown {
-        @include mixins.flex(column);
-    }
-    
-    .subMenuWrapper {
-        @include mixins.flex(column, space-between);
+        .subMenuWrapper {
+            min-width: 120px;
+            background-color: white;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 0 0 10px 10px;
+            position: absolute;
+            top: 50px;
         
-        min-width: 120px;
-        background-color: white;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
-        border-radius: 0 0 10px 10px;
-        position: absolute;
-        top: 40px;
-    }
-    
-    .subMenu {
-        @include mixins.flex(column, space-between);
-
-        li {
-            @include mixins.flex(row);
-            padding: 10px 10px;
+            .subMenu {
+                li {
+                    padding: 10px 10px;
+                }
+            }
         }
     }
 }
@@ -56,9 +196,4 @@
 .navMobile {
     @extend .main;
     @include mixins.flex(row);
-}
-
-.subHidden {
-    // display: none !important;
-    background-color: green !important;
 }

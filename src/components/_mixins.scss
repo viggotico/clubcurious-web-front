@@ -1,3 +1,34 @@
+/*
+denne 'mixin' fil er en del af SCSS's funktionalitet og bruges som et bibliotet med funktioner til .SCSS filer
+for at undgå at skrive det samme CSS igen og igen
+
+funktionerne kan have variabler og variablerne har et dollartegn ($)
+
+for at bruge disse funktioner i en .SCSS fil:
+    1. skrive '@use' også stien til mixin i toppen af .SCSS filen fx: @use './mixins';
+    2. importere en funktion ved at skrive '@include' fx: @include mixins.mobile() {}
+*/
+
+/* media query funktion til desktop */
+@mixin desktop() {
+    @media (min-width: 1050px) {
+        transition: 0.3s;
+        @content;
+    }
+}
+
+/* media query funktion til mobile */
+@mixin mobile() {
+    @media (max-width: 1049px) {
+        transition: 0.3s;
+        @content;
+    }
+}
+
+/*
+flexbox template med optionelle variabler
+til at tilpasse hvordan flexboxet skal være
+*/
 @mixin flex($direction: row, $justify: center, $itemsJustify: center) {
     display: flex;
     flex-direction: $direction;
@@ -5,48 +36,62 @@
     align-items: $itemsJustify;
 }
 
+/*
+absolute position template med conditions
+den normale værdi er 'center' men kan fx også være tep, left, right osv
+*/
 @mixin absolutePos($anchorTo: center) {
     position: absolute;
     offset-anchor: center;
+
+    /* condition: center */
     @if $anchorTo == center {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    /* condition: centerLeft */
     @else if $anchorTo == centerLeft {
         top: 50%;
         left: 0;
         transform: translate(0, -50%);
     }
+    /* condition: centerRight */
     @else if $anchorTo == centerRight {
         top: 50%;
         left: 100%;
         transform: translate(-100%, -50%);
     }
+    /* condition: top */
     @else if $anchorTo == top {
         left: 50%;
         transform: translateX(-50%);
     }
+    /* condition: topLeft */
     @else if $anchorTo == topLeft {
         top: 0;
         left: 0;
         transform: translate(0, 0);
     }
+    /* condition: topRight */
     @else if $anchorTo == topRight {
         top: 0;
         left: 100%;
         transform: translate(-100%, 0);
     }
+    /* condition: bottom */
     @else if $anchorTo == bottom {
         top: 100%;
         left: 50%;
         transform: translate(-50%, -100%);
     }
+    /* condition: bottomLeft */
     @else if $anchorTo == bottomLeft {
         top: 100%;
         left: 0;
         transform: translate(0, -100%);
     }
+    /* condition: bottomRight */
     @else if $anchorTo == bottomRight {
         top: 100%;
         left: 100%;
