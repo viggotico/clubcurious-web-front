@@ -34,13 +34,12 @@ body {
   animation: lavaLampe 40s infinite;
 }
 
-.bg-texture {
+#bg-texture {
   width: 100%;
   height: 100%;
   opacity: 1;
   position: absolute;
   mix-blend-mode: screen;
-  background-image: url("bg-texture.png");
 }
 
 @keyframes lavaLampe {
