@@ -2,12 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Club Curious</title>
   </head>
-  <body>
+  <body class="bg-gradient">
+    <div class="bg-texture"></div>
+    <!-- Alt indhold på hjemmesiden kommer til at være i dette div og opdatere dynamisk -->
     <div id="root"></div>
+    <!-- Dette script er hjemmesidens kerne og sammenfletter alle refererede filer sammen -->
+    <!-- Typen skal være 'module' da der bliver importeret moduler fx: import React from 'react' -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -1,0 +1,56 @@
+@use './mixins';
+
+.main {
+    @include mixins.flex(row);
+
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 30px 30px;
+    position: sticky;
+    z-index: 10;
+    
+    .menu {
+        @include mixins.flex(row, space-between);
+
+        li {
+            @include mixins.flex(row);
+            position: relative;
+            padding: 10px 10px;
+        }
+    }
+}
+
+.navDesktop {
+    @extend .main;
+    @include mixins.flex(row);
+    
+    .dropdown {
+        @include mixins.flex(column);
+    }
+    
+    .subMenuWrapper {
+        @include mixins.flex(column, space-between);
+        @include mixins.absolutePos(top);
+        
+        min-width: 120px;
+        background-color: white;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 0 0 10px 10px;
+        top: 40px;
+    }
+    
+    .subMenu {
+        @include mixins.flex(column, space-between);
+
+        li {
+            @include mixins.flex(row);
+            padding: 10px 10px;
+        }
+    }
+}
+
+.navMobile {
+    @extend .main;
+    @include mixins.flex(row);
+}

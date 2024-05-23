@@ -1,0 +1,55 @@
+@mixin flex($direction: row, $justify: center, $itemsJustify: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $itemsJustify;
+}
+
+@mixin absolutePos($anchorTo: center) {
+    position: absolute;
+    offset-anchor: center;
+    @if $anchorTo == center {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    @else if $anchorTo == centerLeft {
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+    }
+    @else if $anchorTo == centerRight {
+        top: 50%;
+        left: 100%;
+        transform: translate(-100%, -50%);
+    }
+    @else if $anchorTo == top {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    @else if $anchorTo == topLeft {
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+    }
+    @else if $anchorTo == topRight {
+        top: 0;
+        left: 100%;
+        transform: translate(-100%, 0);
+    }
+    @else if $anchorTo == bottom {
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+    @else if $anchorTo == bottomLeft {
+        top: 100%;
+        left: 0;
+        transform: translate(0, -100%);
+    }
+    @else if $anchorTo == bottomRight {
+        top: 100%;
+        left: 100%;
+        transform: translate(-100%, -100%);
+    }
+}
