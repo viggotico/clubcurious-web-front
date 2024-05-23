@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom'
 import DesktopContent from './mediaQuery/DesktopContent'
 import MobileContent from './mediaQuery/MobileContent'
@@ -28,11 +27,13 @@ const Navbar = ({ }) => {
         console.log("dropdown hover out");
         subMenu.classList.add(style.subHidden);
     }
+
     return (
         <>
             {/* Dette indhold bliver kun genereret i desktop */}
             <DesktopContent>
                 <nav className={style.navDesktop}>
+                    <div className='bg-texture-2'></div>
                     <ul className={style.menu}>
                         <li><Link to='/'>Hjem</Link></li>
                         <li className={style.dropdown} onMouseOver={onHover} onMouseLeave={onHoverOut}>
@@ -49,6 +50,7 @@ const Navbar = ({ }) => {
             {/* Dette indhold bliver kun genereret i mobile */}
             <MobileContent>
                 <nav className={style.navMobile}>
+                    <div className='bg-texture'></div>
                 </nav>
             </MobileContent>
         </>

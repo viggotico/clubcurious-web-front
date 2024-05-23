@@ -1,8 +1,23 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
   font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
 
+  --color-main1: #BD1A1A;
+  --color-main2: #F8CB6B;
+  --color-main3: #FFF3C4;
+
+  --color-green: #7F6F22;
+  --color-lightgreen: #E9F4F4;
+  --color-pink: #FFE0E0;
+  --color-blue: #004AAD;
+  --color-lightblue: #C4DAFF;
+  --color-white: #FFFFEE;
+  --color-red: #DD6C4F;
+  
   --bg-gradient: linear-gradient(160deg, #afafaf 0%, #cbbfb0 42%, #bababa 100%);
 }
 
@@ -18,8 +33,23 @@ body {
   min-height: 100vh;
   max-width: 100vw;
   overflow-x: hidden;
-  color: #114d75;
   position: relative;
+  color: var(--color-blue);
+}
+
+a {
+  color: var(--color-green);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--color-green);
+  text-decoration: underline;
+}
+
+li a {
+  color: var(--color-green);
+  text-decoration: none;
 }
 
 #root {
@@ -34,12 +64,19 @@ body {
   animation: lavaLampe 40s infinite;
 }
 
-#bg-texture {
+.bg-texture {
   width: 100%;
   height: 100%;
   opacity: 1;
   position: absolute;
   mix-blend-mode: screen;
+}
+
+.bg-texture-2 {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  position: absolute;
 }
 
 @keyframes lavaLampe {
