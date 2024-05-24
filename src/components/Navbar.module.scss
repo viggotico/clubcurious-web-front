@@ -261,8 +261,8 @@
 }
 
 .svgArrowActive {
-    transform: rotateZ(0) scale(0.7);
-    transition: 0.2s ease;
+    transform: rotateZ(0) scale(0.7) !important;
+    transition: 0.2s ease !important;
 }
 
 .subMenuWrapperActive {

@@ -18,7 +18,7 @@ const MenuLink = ({ children, to, mobileNavVisible }) => {
         if (mobileNavVisibleBusy) return;
         setMobileNavVisibleBusy(true);
         const dropdown = e.target.closest('li');
-        console.log("dropdown.children[1]:", dropdown.children[1].classList);
+        dropdown.children[0].children[0].children[0].classList.toggle(style.svgArrowActive);
         dropdown.children[1].classList.toggle(style.show);
         setTimeout(() => setMobileNavVisibleBusy(false), 200);
     };
