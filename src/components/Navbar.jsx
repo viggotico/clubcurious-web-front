@@ -47,6 +47,7 @@ const Dropdown = ({ children, to, name, mobileNavVisible }) => {
             </MenuLink>
             <div className={style.subMenuWrapper}>
                 <ul className={style.subMenu}>
+                    <div className='bg-texture-2'></div>
                     {children}
                 </ul>
             </div>
@@ -117,6 +118,7 @@ const Navbar = ({ }) => {
                             <Link to='/'><img src="logo.png" alt="Logo" /></Link>
                         </div>
                         <ul className={`${style.menu}${mobileNavVisible ? ` ${style.showNavMobile}` : ''}`}>
+                            <div className='bg-texture-2'></div>
                             <li><MenuLink to='/' >{navItemName('home')}</MenuLink></li>
                             <Dropdown mobileNavVisible={mobileNavVisible} to='/events' name={navItemName('events')}>
                                 <li><MenuLink to='/events#billetto'>{navItemName('calender')}</MenuLink></li>

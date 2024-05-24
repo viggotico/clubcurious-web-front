@@ -9,8 +9,13 @@ const MainLayout = ({ }) => {
     useEffect(() => {
         // importere 'bg-texture' så den bliver inkluderet i lanceringen
         const bgTexture = document.getElementsByClassName('bg-texture');
+        const bgTexture2 = document.getElementsByClassName('bg-texture-2');
         for (let i = 0; i < bgTexture.length; i++) {
             const element = bgTexture[i];
+            element.style.backgroundImage = `url("${bgTextureUrl}")`;
+        }
+        for (let i = 0; i < bgTexture2.length; i++) {
+            const element = bgTexture2[i];
             element.style.backgroundImage = `url("${bgTextureUrl}")`;
         }
     }, []);
@@ -18,7 +23,9 @@ const MainLayout = ({ }) => {
     return (
         <main className={style.main}>
             <Navbar />
-            <Outlet />
+            <section className={style.content}>
+                <Outlet />
+            </section>
             <Footer />
         </main>
     )
