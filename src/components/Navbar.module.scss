@@ -4,7 +4,6 @@
     @include mixins.flex(row);
 
     width: calc(100% - 40px);
-    min-width: 755px;
     height: fit-content;
     margin: 0 20px;
     font-size: 1rem;
@@ -15,9 +14,9 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    animation: showNavbar ease 0.5s;
+    animation: showNavbarAni ease 0.5s;
 
-    @keyframes showNavbar {
+    @keyframes showNavbarAni {
         0% {
             transform: translateY(-100px);
         }
@@ -116,46 +115,12 @@
             .dropdown:hover {
                 .iconWrapper {
                     svg {
-                        transform: rotateZ(0) scale(0.7);
-                        transition: 0.2s ease;
+                        @extend .svgArrowActive;
                     }
                 }
     
                 .subMenuWrapper {
-                    display: flex;
-                }
-            }
-
-            .language {
-                @include mixins.flex(row);
-
-                gap: 3px;
-                margin-left: 10px;
-                padding: 5px 7px;
-                background-color: var(--color-red);
-                border-radius: 10px;
-                font-size: 0.6em;
-                color: var(--color-white);
-
-                span {
-                    @include mixins.flex(row);
-
-                    cursor: default;
-                    width: 100%;
-                    padding-top: 1px;
-                }
-
-                svg {
-                    font-size: 1.5em;
-                }
-            }
-
-            .language:hover {
-                cursor: pointer;
-                background-color: var(--color-blue);
-
-                span {
-                    cursor: pointer;
+                    @extend .subMenuWrapperActive;
                 }
             }
         }
@@ -177,10 +142,11 @@
     @extend .main;
     @include mixins.flex(row);
     
+    min-width: 755px;
     .dropdown {
         .subMenuWrapper {
             min-width: 120px;
-            background-color: white;
+            background-color: var(--color-white);
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
             border-radius: 0 0 10px 10px;
             position: absolute;
@@ -199,11 +165,13 @@
     @extend .main;
     @include mixins.flex(row);
 
+    min-width: initial;
     width: calc(100% + 80px);
     border-radius: 0;
     transform: translateX(-60px);
+    animation: showNavbarAniMobile ease 0.5s;
 
-    @keyframes showNavbar {
+    @keyframes showNavbarAniMobile {
         0% {
             transform: translate(-60px, -100px);
         }
@@ -234,10 +202,6 @@
                     font-size: 0.8em;
                     background-color: var(--color-main3);
                 }
-            }
-
-            .dropdown:hover {
-                padding: 10px 0 0 0;
             }
 
             li {
@@ -296,21 +260,54 @@
     transition: transform 0.5s ease;
 }
 
-.activeNavMobile {
-    div {
-        @include mixins.absolutePos(center);
-        display: none;
+.svgArrowActive {
+    transform: rotateZ(0) scale(0.7);
+    transition: 0.2s ease;
+}
+
+.subMenuWrapperActive {
+    display: flex;
+}
+
+.show {
+    display: flex !important;
+}
+
+.language {
+    @include mixins.flex(row);
+
+    gap: 3px;
+    margin-left: 10px;
+    padding: 5px 7px !important;
+    background-color: var(--color-red);
+    border-radius: 10px;
+    font-size: 0.6em;
+    color: var(--color-white);
+
+    span {
+        @include mixins.flex(row);
+
+        cursor: default;
+        width: 100%;
+        padding-top: 1px;
     }
 
-    div:first-child {
-        display: block;
-        transform: translate(-50%, -50%) rotate(-30deg);
-        transition: transform 0.3s ease;
+    svg {
+        font-size: 1.5em;
     }
+}
 
-    div:last-child {
-        display: block;
-        transform: translate(-50%, -50%) rotate(30deg);
-        transition: transform 0.3s ease;
+.language:hover {
+    cursor: pointer;
+    background-color: var(--color-blue);
+
+    span {
+        cursor: pointer;
     }
+}
+
+.languageMobile {
+    @extend .language;
+    @include mixins.absolutePos(center);
+    padding: 7px 10px !important;
 }
