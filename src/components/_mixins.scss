@@ -11,7 +11,7 @@ for at bruge disse funktioner i en .SCSS fil:
 
 /* media query funktion til desktop */
 @mixin desktop() {
-    @media (min-width: 1050px) {
+    @media (min-width: 880px) {
         transition: 0.3s;
         @content;
     }
@@ -19,7 +19,7 @@ for at bruge disse funktioner i en .SCSS fil:
 
 /* media query funktion til mobile */
 @mixin mobile() {
-    @media (max-width: 1049px) {
+    @media (max-width: 879px) {
         transition: 0.3s;
         @content;
     }
@@ -64,6 +64,7 @@ den normale værdi er 'center' men kan fx også være tep, left, right osv
     }
     /* condition: top */
     @else if $anchorTo == top {
+        top: 0;
         left: 50%;
         transform: translateX(-50%);
     }

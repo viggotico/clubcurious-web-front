@@ -1,7 +1,7 @@
 import { useMediaQuery } from 'react-responsive'
 
 const MobileContent = ({ children }) => {
-    const isMediaQuery = useMediaQuery({ query: '(max-width: 1049px)' })
+    const isMediaQuery = useMediaQuery({ query: '(max-width: 879px)' })
     return (isMediaQuery ? <>{children}</> : <></>)
 }
 
