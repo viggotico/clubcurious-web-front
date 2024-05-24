@@ -43,6 +43,9 @@ body {
   width: 100%;
   height: 100%;
   min-height: 100vh;
+  max-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
 a {
@@ -56,9 +59,7 @@ a:hover {
 
 .bg-gradient {
   /* https://cssgradient.io/ */
-  background-size: 300%;
   background-image: var(--bg-gradient);
-  animation: lavaLampe 10s infinite;
 }
 
 .bg-texture {
@@ -74,16 +75,4 @@ a:hover {
   height: 100%;
   opacity: 0.6;
   position: absolute;
-}
-
-@keyframes lavaLampe {
-  0% {
-    background-position: left;
-  }
-  50% {
-    background-position: right;
-  }
-  100% {
-    background-position: left;
-  }
 }
