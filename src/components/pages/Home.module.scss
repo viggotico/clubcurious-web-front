@@ -5,14 +5,37 @@
     @include mixins.flex(column, space-between);
 
     width: 100%;
-    height: 80vh;
     .header {
+        @include mixins.flex(row);
+
         width: 100%;
-        
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
+        height: 30vh;
+        .slider {
+            overflow: hidden;
+            width: calc(100% - 40px);
+            border-radius: 25px;
+            animation: sliderBlobAni 20s ease-in-out infinite;
+
+            .item {
+                div {
+                    width: 100%;
+                    height: 50vh;
+                    background-position: center center;
+                    background-size: cover;
+                }
+            }
+
+
+            @keyframes sliderBlobAni {
+                0%, 100% {
+                    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                    box-shadow: 6px 5px 0 5px var(--color-blue);
+                }
+                50% {
+                    border-radius: 40% 30% 50% 40% / 50% 60% 30% 60%;
+                    box-shadow: -5px -3px 0 2px var(--color-blue);
+                }
+            }
         }
     }
 
@@ -20,16 +43,20 @@
         @include mixins.flex(row, space-around);
 
         width: calc(100% - 40px);
-        height: 50vh;
+        height: 80vh;
+        z-index: 2;
         .left {
             @include mixins.flex(column, space-around);
+
+            p {
+                color: var(--color-main1);
+            }
             
             gap: 20px;
             width: 50%;
             padding-right: 20px;
             line-height: 1.7;
-            // text-align: justify;
-            // text-justify: inter-word;
+            text-align: center;
             cursor: default;
             animation: easeInRight 1s ease;
         }
@@ -75,6 +102,18 @@
                 }
             }
         }
+    }
+
+    .textPath {
+        @include mixins.absolutePos(center);
+        top: 60%;
+        width: 100%;
+        height: fit-content;
+        letter-spacing: 5px;
+        word-spacing: 100px;
+        font-weight: 400;
+        z-index: 1;
+        color: var(--color-main1) !important;
     }
 
     .maps {

@@ -84,9 +84,21 @@ class Translation {
                 "DK": "Hvad er Club Curious?",
                 "EN": "What is Club Curious?"
             },
-            "description": {
-                "DK": loremIpsum,
-                "EN": loremIpsum
+            "description1": {
+                "DK": "🌴 Om Club Curious 🌴",
+                "EN": "🌴 About Club Curious 🌴"
+            },
+            "description2": {
+                "DK": "Vi er et cute venue og community.",
+                "EN": "We are a cute venue and community."
+            },
+            "description3": {
+                "DK": "Vi er klubben for kultur, kreativitet og nysgerrighed. Vi inviterer til events fyldt med gode venner og nærvær! Find balancen i hverdagen.",
+                "EN": "We are the club for culture, creativity and curiosity. We invite you to events filled with good friends and presence! Find balance in everyday life."
+            },
+            "description4": {
+                "DK": "CONNECT ✨ CREATE ✨ CELEBRATE",
+                "EN": "CONNECT ✨ CREATE ✨ CELEBRATE"
             },
         },
         
