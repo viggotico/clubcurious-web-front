@@ -2,6 +2,7 @@ import { useWindowScroll } from "@uidotdev/usehooks";
 import Slider from "react-slick";
 import useTranslation from '../../hooks/useTranslation';
 import style from './Home.module.scss';
+import onair from '../../assets/onair.jpg';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -40,7 +41,7 @@ const Home = ({ }) => {
                     <p>{translation.get('frontpage', 'description4')}</p>
                 </div>
                 <div className={style.right}>
-                    <div className={style.blob}></div>
+                    <div className={style.blob} style={{backgroundImage: `url("${onair}")` }}></div>
                 </div>
             </div>
             <div className={style.textPath}>
